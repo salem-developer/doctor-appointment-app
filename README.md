@@ -40,3 +40,7 @@ A modern web application for patients to easily browse and book appointments wit
    ```bash
    git clone https://github.com/your-username/doctor-appointment-app.git
    cd doctor-appointment-app
+   npm install
+   npm install -g json-server
+   json-server --watch data.json --port 3001
+   npm run dev
