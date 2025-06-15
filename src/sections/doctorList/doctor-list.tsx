@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-  
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Users } from "lucide-react";
+import { ArchiveX, Users } from "lucide-react";
 
 import { useGetDoctorsQuery } from "@/redux/features/apiSlice";
 import { DoctorCard } from "@/components/DoctorCard";
@@ -12,35 +11,36 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { FilterTag } from "@/components/FilterTag";
 
-
 export const DoctorSelection = () => {
   const navigate = useNavigate();
-  const { data = [], isLoading } = useGetDoctorsQuery();
+  const { data = [], isLoading, isError } = useGetDoctorsQuery();
   const [showAll, setShowAll] = useState(false);
-  const [selectedSpecialty, setSelectedSpecialty] = useState<string>('All');
+  const [selectedSpecialty, setSelectedSpecialty] = useState<string>("All");
 
   const specialties = useMemo(() => {
-    if (!data || data.length === 0) return ['All'];
-    const uniqueSpecialties = Array.from(new Set(data.map((doctor: any) => doctor.specialty)));
-    return ['All', ...uniqueSpecialties];
+    if (!data || data.length === 0) return ["All"];
+    const uniqueSpecialties = Array.from(
+      new Set(data.map((doctor: any) => doctor.specialty))
+    );
+    return ["All", ...uniqueSpecialties];
   }, [data]);
-  
+
   const filteredDoctors = useMemo(() => {
-    if (selectedSpecialty === 'All') {
+    if (selectedSpecialty === "All") {
       return data;
     }
     return data.filter((doctor: any) => doctor.specialty === selectedSpecialty);
   }, [data, selectedSpecialty]);
-  
+
   const doctors = showAll ? filteredDoctors : filteredDoctors.slice(0, 6);
 
   const getSpecialtyCount = (specialty: string) => {
-    if (specialty === 'All') return data.length;
+    if (specialty === "All") return data.length;
     return data.filter((doctor: any) => doctor.specialty === specialty).length;
   };
 
   const onDoctorSelect = (doctorId: string) => {
-   navigate(`/book/${doctorId}`, { state: { fromHome: true } });
+    navigate(`/book/${doctorId}`, { state: { fromHome: true } });
   };
 
   return (
@@ -49,9 +49,7 @@ export const DoctorSelection = () => {
         <div className="text-center space-y-4">
           <div className="flex items-center justify-center space-x-3">
             <Users className="w-8 h-8 text-blue-600" />
-            <h2 className="text-3xl font-bold text-gray-800">
-              Choose Doctor
-            </h2>
+            <h2 className="text-3xl font-bold text-gray-800">Choose Doctor</h2>
           </div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-2">
             Select from our experienced medical professionals to book your
@@ -72,10 +70,10 @@ export const DoctorSelection = () => {
             />
           ))}
         </div>
-       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-        {(isLoading) ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+          {isLoading ? (
             Array(showAll ? data.length : 6)
-             .fill(0)
+              .fill(0)
               .map((_, index) => (
                 <div
                   key={index}
@@ -87,6 +85,12 @@ export const DoctorSelection = () => {
                   <Skeleton className="h-32 w-full rounded-md" />
                 </div>
               ))
+          ) : isError ? (
+            <div className="flex flex-col items-center justify-center py-16 text-red-500">
+              {/* <ShoppingBag className="w-16 h-16 mb-4" /> */}
+              <ArchiveX className="w-16 h-16 mb-4"/>
+              <p className="text-lg">Failed to load data.</p>
+            </div>
           ) : (
             doctors.map((doctor: any) => (
               <DoctorCard
@@ -97,8 +101,8 @@ export const DoctorSelection = () => {
             ))
           )}
         </div>
-        
-      {!showAll && filteredDoctors.length > 6 && (
+
+        {!showAll && filteredDoctors.length > 6 && (
           <div className="text-center mt-6">
             <Button onClick={() => setShowAll(true)}>View All</Button>
           </div>

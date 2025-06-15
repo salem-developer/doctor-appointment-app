@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ShoppingBag } from "lucide-react";
+import { ArchiveX } from "lucide-react";
 import DataTable from "@/components/data-table";
 import AppointmentSkeleton from "@/components/AppointmentSkeleton";
 import SearchBar from "@/components/SearchBar";
@@ -70,12 +70,12 @@ const location = useLocation();
               .map((_, idx) => <AppointmentSkeleton key={idx} />)
           ) : isError ? (
             <div className="flex flex-col items-center justify-center py-16 text-red-500">
-              <ShoppingBag className="w-16 h-16 mb-4" />
+              <ArchiveX className="w-16 h-16 mb-4"/>
               <p className="text-lg">Failed to load data.</p>
             </div>
           ) : filtered.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-16 text-gray-500">
-              <ShoppingBag className="w-16 h-16 mb-4" />
+             <ArchiveX className="w-16 h-16 mb-4"/>
               <p className="text-lg">No appointments found</p>
             </div>
           ) : (

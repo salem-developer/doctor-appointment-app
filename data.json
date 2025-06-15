@@ -74,52 +74,14 @@
       "doctorId": "2",
       "date": "15-06-2025",
       "startTime": {
-        "hour": 11,
+        "hour": 10,
         "minute": 45,
         "period": "AM"
       },
       "endTime": {
-        "hour": 12,
+        "hour": 11,
         "minute": 0,
         "period": "PM"
-      }
-    },
-    {
-      "id": "240583d3-0d33-4af3-9e83-de4d45561a41",
-      "firstName": "Salem",
-      "lastName": "Basumata",
-      "email": "sbasumatas58@gmail.com",
-      "phone": "0790892815",
-      "doctorId": "2",
-      "date": "15-06-2025",
-      "startTime": {
-        "hour": 1,
-        "minute": 0,
-        "period": "AM"
-      },
-      "endTime": {
-        "hour": 1,
-        "minute": 15,
-        "period": "AM"
-      }
-    },
-    {
-      "id": "3c721432-4e4c-43d2-86ce-42dfdec4f07a",
-      "firstName": "Salem",
-      "lastName": "Basumata",
-      "email": "sbasumatas58@gmail.com",
-      "phone": "7686756859",
-      "doctorId": "1",
-      "date": "16-06-2025",
-      "startTime": {
-        "hour": 10,
-        "minute": 0,
-        "period": "AM"
-      },
-      "endTime": {
-        "hour": 10,
-        "minute": 15,
-        "period": "AM"
       }
     }
   ]
