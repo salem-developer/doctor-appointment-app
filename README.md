@@ -1,54 +1,46 @@
-# React + TypeScript + Vite
+# 🩺 Doctor Appointment Booking App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application for patients to easily browse and book appointments with doctors based on specialty, availability, and time slots.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔍 Browse doctors by specialty
+- 📅 Book appointments with live slot availability
+- 🧠 Intelligent time slot selection
+- 🏷️ Filter doctors by categories like Dermatology, Cardiologist, etc.
+- 🧼 Responsive UI using Tailwind CSS and ShadCN UI
+- ⚛️ Built with React, Redux Toolkit Query, and React Router
+- 🌐 Mock API with `json-server`
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Tech Stack
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Frontend**: React, Redux Toolkit, React Hook Form, React Router DOM
+- **UI & Styling**: Tailwind CSS, ShadCN UI, Lucide Icons
+- **Mock Backend**: `json-server`
+- **State Management**: Redux Toolkit (RTK Query for API integration)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📸 Screenshots
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+![image](https://github.com/user-attachments/assets/679cd2c6-cc02-424a-aa11-a6430dfeb52b)
+![image](https://github.com/user-attachments/assets/37fc645b-49f3-445e-a8d1-5cc90c5a7325)
+![image](https://github.com/user-attachments/assets/bf12107f-d2ce-41aa-b7c4-0b3f0a75c000)
+
+
+
+---
+
+## 🔧 Installation & Setup
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/your-username/doctor-appointment-app.git
+   cd doctor-appointment-app
+   npm install
+   npm install -g json-server
+   json-server --watch data.json --port 3001
+   npm run dev
