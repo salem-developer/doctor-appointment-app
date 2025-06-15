@@ -103,7 +103,7 @@ export const DoctorSelection = () => {
         </div>
 
         {!showAll && filteredDoctors.length > 6 && (
-          <div className="text-center mt-6">
+          <div className="text-center mt-6 mb-10">
             <Button onClick={() => setShowAll(true)}>View All</Button>
           </div>
         )}

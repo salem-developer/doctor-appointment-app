@@ -36,7 +36,7 @@ const UserDetailsForm: React.FC<Props> = ({
   const validation = getValidationRules();
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+    <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 mb-4">
       <div className="flex items-center gap-3 mb-6">
         <User className="w-6 h-6 text-blue-500" />
         <h2 className="text-xl font-bold text-gray-900">Details</h2>
